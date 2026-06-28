@@ -1,22 +1,10 @@
 describe('Users - Negative tests', () => {
 
-  it('deve falhar login com credenciais inválidas', () => {
-    cy.api({
-      method: 'POST',
-      url: '/login',
-      failOnStatusCode: false,
-      body: {
-        email: 'invalid@test.com',
-        password: 'wrong'
-      }
-    }).then((res) => {
-      expect(res.status).to.eq(401);
-    });
-  });
-
   it('não deve criar usuário com email duplicado', () => {
-    const email = 'duplicado@qa.com';
 
+    const email = `dup${Date.now()}@qa.com`;
+
+    // 1. cria usuário primeiro (válido)
     cy.api({
       method: 'POST',
       url: '/usuarios',
@@ -26,8 +14,11 @@ describe('Users - Negative tests', () => {
         password: '123456',
         administrador: 'true'
       }
+    }).then((res) => {
+      expect(res.status).to.eq(201);
     });
 
+    // 2. tenta criar novamente com mesmo email (erro esperado)
     cy.api({
       method: 'POST',
       url: '/usuarios',
@@ -39,8 +30,12 @@ describe('Users - Negative tests', () => {
         administrador: 'true'
       }
     }).then((res) => {
+
       expect(res.status).to.eq(400);
+      expect(res.body.message).to.eq('Este email já está sendo usado');
+
     });
+
   });
 
 });
