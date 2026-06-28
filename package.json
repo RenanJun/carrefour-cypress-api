@@ -1,0 +1,50 @@
+{
+  "name": "api-testing-cypress",
+  "version": "1.0.0",
+  "description": "Framework de automação utilizando Cypress para testes de API",
+  "main": "index.js",
+  "scripts": {
+    "start:server": "cd server && npm run start",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "regressivo": "npm run cypress:run -- cypress/e2e/*.cy.js",
+    "cypress:aws": "npm run --rerporter cypress-multi-reportes --reporter-options mochaFile=cypress/tests/junit-report-[hash].xml",
+    "cypress:allureRun": "npx cypress run --config video=false --env allure=true",
+    "cypress:generate": "allure genetare allure-results --clean",
+    "dog-api": "npm run cypress:run -- --spec cypress/e2e/DogApi/**/*.cy.js --config video=false --env allure=true",
+    "serverest": "npm run cypress:run -- --spec cypress/e2e/Serverest/**/*.cy.js --config video=false --env allure=true",
+    "merge-reports": "jrm combined.xml \"reports/*.xml\"",
+    "cypress:teste": "npm run cypress:run -- --spec cypress/e2e/Teste/**/*.cy.js --config video=false --env allure=true",
+    "limpar-allure-results": "rm -rf allure-results/*",
+    "limpar-reports": "rm -rf reports/*",
+    "limpar-allure": "allure generate allure-results --clean -o allure-report",
+    "open-allure": "allure open allure-report",
+    "test:chrome": "cypress run --browser chrome",
+    "report:merge": "mochawesome-merge cypress/reports/json/*.json > index.json",
+    "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
+  },
+  "keywords": [
+    "Cypress.io",
+    "cypress-plugin-api",
+    "API testing",
+    "Talking About Testing"
+  ],
+  "author": "Renan Jun",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "cypress-plugin-api": "^2.11.1",
+    "dotenv": "16.4.7"
+  },
+  "devDependencies": {
+    "@bahmutov/cy-api": "2.2.4",
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.1",
+    "allure-cypress": "^3.0.6",
+    "cypress": "^14.5.4",
+    "junit-report-merger": "^7.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/support/steps"
+  }
+}

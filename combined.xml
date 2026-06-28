@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="15" failures="0" time="1.566">
+  <testsuite name="Root Suite" timestamp="2025-11-11T11:52:50" tests="0" file="cypress/e2e/DogApi/breed_images.cy.js" time="0" failures="0"></testsuite>
+  <testsuite name="Dog API - Imagem do bulldog" timestamp="2025-11-11T11:52:50" tests="5" time="1.566" failures="0">
+    <testcase name="Dog API - Imagem do bulldog Validar se existe a imagem do bulldog - statuscode 200" time="0.872" classname="Validar se existe a imagem do bulldog - statuscode 200"></testcase>
+    <testcase name="Dog API - Imagem do bulldog Validar se existe a imagem do bulldog - statuscode 200" time="1.055" classname="Validar se existe a imagem do bulldog - statuscode 200"></testcase>
+    <testcase name="Dog API - Imagem do bulldog Validar se existe a imagem do bulldog - statuscode 200" time="1.222" classname="Validar se existe a imagem do bulldog - statuscode 200"></testcase>
+    <testcase name="Dog API - Imagem do bulldog Validar se existe a imagem do bulldog - statuscode 200" time="1.043" classname="Validar se existe a imagem do bulldog - statuscode 200"></testcase>
+    <testcase name="Dog API - Imagem do bulldog Validar se existe a imagem do bulldog - statuscode 200" time="1.054" classname="Validar se existe a imagem do bulldog - statuscode 200"></testcase>
+  </testsuite>
+  <testsuite name="Dog API - Lista de raças" timestamp="2025-10-27T20:46:56" tests="5" time="0.958" failures="0">
+    <testcase name="Dog API - Lista de raças Validar se existe o bulldog na lista - statuscode 200" time="0.654" classname="Validar se existe o bulldog na lista - statuscode 200"></testcase>
+    <testcase name="Dog API - Lista de raças Validar se existe o bulldog na lista - statuscode 200" time="0.681" classname="Validar se existe o bulldog na lista - statuscode 200"></testcase>
+    <testcase name="Dog API - Lista de raças Validar se existe o bulldog na lista - statuscode 200" time="0.659" classname="Validar se existe o bulldog na lista - statuscode 200"></testcase>
+    <testcase name="Dog API - Lista de raças Validar se existe o bulldog na lista - statuscode 200" time="0.651" classname="Validar se existe o bulldog na lista - statuscode 200"></testcase>
+    <testcase name="Dog API - Lista de raças Validar se existe o bulldog na lista - statuscode 200" time="0.671" classname="Validar se existe o bulldog na lista - statuscode 200"></testcase>
+  </testsuite>
+  <testsuite name="Dog API - Validar Url" timestamp="2025-11-11T11:52:53" tests="5" time="0.959" failures="0">
+    <testcase name="Dog API - Validar Url Validar a url - statuscode 200" time="0.655" classname="Validar a url - statuscode 200"></testcase>
+    <testcase name="Dog API - Validar Url Validar a url - statuscode 200" time="0.659" classname="Validar a url - statuscode 200"></testcase>
+    <testcase name="Dog API - Validar Url Validar a url - statuscode 200" time="0.659" classname="Validar a url - statuscode 200"></testcase>
+    <testcase name="Dog API - Validar Url Validar a url - statuscode 200" time="0.665" classname="Validar a url - statuscode 200"></testcase>
+    <testcase name="Dog API - Validar Url Validar a url - statuscode 200" time="0.657" classname="Validar a url - statuscode 200"></testcase>
+  </testsuite>
+</testsuites>

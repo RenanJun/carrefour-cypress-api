@@ -1,0 +1,27 @@
+{
+  "title": "Dog API Response Schema",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "object",
+      "description": "Lista de raças e suas sub-raças",
+      "patternProperties": {
+        "^[a-zA-Z]+$": {
+          "type": "array",
+          "description": "Sub-raças da raça principal (pode estar vazio)",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "error"],
+      "description": "Status da requisição à API"
+    }
+  },
+  "required": ["message", "status"],
+  "additionalProperties": false
+}

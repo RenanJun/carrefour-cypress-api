@@ -1,0 +1,11 @@
+videos/
+screenshots/
+node_modules/
+allure-report/
+allure-results/
+old/
+*.xml/
+reports/
+FD9/
+mochawesome-report/
+mochawesome.json/

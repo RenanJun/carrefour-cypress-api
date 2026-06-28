@@ -1,0 +1,61 @@
+name: 🚀 Cypress API Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-24.04
+
+    steps:
+      # 🔍 Checkout do repositório
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      # ⚙️ Configura Node.js
+      - name: 🛠️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 📦 Instala dependências do projeto raiz
+      - name: 📦 Install root dependencies
+        run: npm ci
+
+      # 📦 Instala dependências do servidor
+      - name: 📦 Install server dependencies
+        working-directory: ./server
+        run: npm ci
+
+      # 🚀 Inicia o servidor da API em background
+      - name: 🚀 Start API server
+        working-directory: ./server
+        run: npm run start &
+      
+      # ⏳ Aguarda o servidor subir
+      - name: ⏳ Wait for server to be ready
+        run: sleep 10
+
+      # 🧹 Limpa allure-results
+      - name: 🧹 Clean Allure Results
+        run: rm -rf allure-results || true
+
+      # 🧪 Executa os testes Cypress
+      - name: 🧪 Run Cypress API Tests
+        run: npm run serverest
+
+      # 📊 Gera relatório Allure
+      - name: 📊 Generate Allure Report
+        run: |
+          npm install -g allure-commandline@2
+          allure generate allure-results --clean -o allure-report
+
+      # 📤 Faz upload do relatório como artefato
+      - name: 📤 Upload Allure Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
